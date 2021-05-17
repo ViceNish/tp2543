@@ -7,6 +7,7 @@
 <head>
   <title>Supreme Office Pro System : Products</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="images/sopico.ico"/>
 </head>
 <body>
   <center>

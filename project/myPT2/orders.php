@@ -6,6 +6,7 @@
 <html>
 <head>
   <title>Supreme Office Pro System : Orders</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/sopico.ico"/>
 </head>
 <body>
   <center>
