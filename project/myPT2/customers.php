@@ -21,7 +21,7 @@
       Customer Name
       <input name="cname" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_NAME']; ?>" required> <br>
       Phone Number
-      <input name="phone" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_PHONE']; ?>" required> <br>
+      <input name="phone" type="text" pattern="^601[0-9]{1}([0-9]{8}|[0-9]{7})" placeholder="#60123456789" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_PHONE']; ?>" required> <br>
       <?php if (isset($_GET['edit'])) { ?>
       <input type="hidden" name="oldcid" value="<?php echo $editrow['FLD_CUSTOMER_ID']; ?>">
       <button type="submit" name="update">Update</button>

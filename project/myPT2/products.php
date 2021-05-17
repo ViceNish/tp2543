@@ -22,7 +22,7 @@
       Name
       <input name="name" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_NAME']; ?>" required> <br>
       Price
-      <input name="price" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRICE']; ?>" required> <br>
+      <input name="price" type="number" min="0.00" step="0.01" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRICE']; ?>" required> <br>
       Brand
       <input type="text" name="brand" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_BRAND']; ?>" required> <br>
       Type
