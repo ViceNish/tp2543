@@ -12,15 +12,25 @@ class MyGuestBook extends CI_Controller {
       $this->load->library('form_validation');
     }
  
-    function index() {
+    function index($error = "") {
       $data['title'] = 'MyGuestBook';
+      $data['error'] = $error;
       $this->load->view('mainmenu', $data);
     }
 
-    public function view() {
+    public function view($error = "") {
       $data['result'] = $this->myguestbook_model->read(null, null, null);
       $data['title'] = 'List of All Comments';
-      $this->load->view('list', $data);
+      $data['error'] = $error;
+
+      if ($data['result']) {
+        $this->load->view('list', $data);
+      }else{
+        $this->index();
+        //or
+        //redirect(base_url()."/myguestbook/")
+      }
+      
     }
 
     public function create() {
@@ -92,7 +102,15 @@ class MyGuestBook extends CI_Controller {
         else {
             $id = $this->uri->segment(3);
             $data['result'] = $this->myguestbook_model->read(array('id' => $id), null, null);
-            $this->load->view('edit', $data);   
+
+            if($data['result']){
+              $this->load->view('edit', $data);
+            }else{
+              //$this->view();
+              //or
+              redirect(base_url()."/myguestbook/view");
+            }
+               
         }
     }
 
