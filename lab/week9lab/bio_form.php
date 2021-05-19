@@ -28,6 +28,29 @@ $univ = array
       font: 100% Lucida Sans,Verdana;
       font-weight: bold;
     }
+    textarea{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 10px 0px 10px 0px;
+      box-sizing: border-box;
+      font: 100% Lucida Sans, Verdana;
+    }
+    select{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 10px 0px 10px 0px;
+      box-sizing: border-box;
+      font: 100% Lucida Sans, Verdana;
+    }
+    .button{
+      background-color: #0000FF;
+      border: none;
+      color: #fff;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
 </style>
 </head>
 <body>
@@ -62,24 +85,24 @@ $univ = array
 <input type="tel" name="phone" id="idtel" pattern="\+60\d{2}-\d{7}" placeholder="+60##-#######"><br>
      
 <label for="idcolor">My Favorite Color:</label><br>
-<input type="color" name="color" id="idcolor"><br>
+<input type="color" name="color" id="idcolor" style="width: 30%"><br>
      
 <label for="idfbtwig">Fb/TW/IG:</label>
 <input type="url" name="fbtwig" id="idfbtwig" placeholder="Insert the URL"><br>
      
 <label for="iduniv"></label>My University:
 <select name="university" id="iduniv">
-  <option value="" selected>Select</option>
+  <option value="" style="width: 100%" selected>Select</option>
   <?php
   foreach ($univ as $u) {
-    echo "<option value=".$u['abb'].">".$u['name']."</option>";
+    echo "<option value=".$u['abb'].">".$u['name']." </option>";
   }
   ?>
 </select><br>
  
 <input type="hidden" name="matricnum" value="a123456">
-<input type="submit" name="biodata_form" value="Submit My Biodata">
-<input type="reset">
+<input type="submit" name="biodata_form" class ="button" value="Submit My Biodata">
+<input type="reset" class="button">
 </form>
  
 </body>
