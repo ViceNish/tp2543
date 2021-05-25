@@ -5,24 +5,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     .bg-1 {
-      background-color: #f4511e; /* Orange */
-      color: #ffffff;
+      /*background-color: #f4511e;*/ /* Orange */
+     /* background: linear-gradient(#0F2027, #203A43, #2C5364);*/
+      background-image: url('../../image/apex1.png');
+      background-size: 100% 100%;
+      color: #fff;
   	}
   	.bg-2 {
-      background-color: #333399; /* Dark Blue */
+      /*background-color: #333399;*/ /* Dark Blue */
+      background: linear-gradient(#753a88 80% ,#734b6d);
       color: #ffffff;
     }
     .bg-3 {
-        background-color: #ffffff; /* White */
+        /*background-color: #ffffff;*/ /* White */
+        background: linear-gradient(#fbc2eb 5%,#a18cd1);
         color: #555555;
     }
     .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
+    padding-left: 50px;
+    padding-right: 50px;```
   	}
   	.navbar {
     padding-top: 15px;
@@ -33,12 +41,28 @@
     font-size: 14px;
     letter-spacing: 3px;
   	}
+  	.bg-4 {
+    background-color: #2f2f2f;
+    color: #ffffff;
+	}
+	footer .glyphicon {
+	    font-size: 20px;
+	    margin-bottom: 20px;
+	    color: #f4511e;
+	}
+	body {
+	  font: 14px "Montserrat", sans-serif;
+	  line-height: 1.8;
+	}
+	h1,h2,h3,p{
+		font-weight: bold;
+	}
   </style>
 </head>
 <body id="myPage">
 	<nav class="navbar navbar-default">
 	  <div class="container">
-	    <div class="navbar-header">``
+	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 	        <span class="icon-bar"></span>q
 	        <span class="icon-bar"></span>
@@ -57,24 +81,27 @@
 	  </div>
 	</nav>
  	<div class="container-fluid bg-1 text-center" id="hello">
-		<h3>Hello</h3>
+		<h1>Hello there,</h1>
 		<img src="../../image/vice1.jpg" class="img-circle" alt="Myself">
-		<h3>I'm Vice</h3>
+		<h2>I'm Danish. Call me Vice !</h2>
  	</div>
  	<div class="container-fluid bg-2 text-center" id="who">
-	  <h3>Who Am I?</h3>
+	  <h1>Who Am I?</h1>
 	  <div class="row">
 		    <div class="col-sm-4">
-		      <p>Rick and Morty<br> Wubba luba dub dub !!!</p>
-		      <img src="../../image/ricknmorty 3.jpg" class="img-responsive" alt="Image" style="display:inline">
+		      <!-- <p>Rick and Morty<br> Wubba luba dub dub !!!</p> -->
+		      <img src="../../image/ricknmorty 3.jpg" class="img-responsive" alt="Rick and Morty" style="display:inline; margin-bottom: 10%;">
+		      <p>Love watch this show!</p>
 		    </div>
 		    <div class="col-sm-4">
-		      <p>Discord Kuma.</p>
-		      <img src="../../image/DiscordKuma.jpg" class="img-responsive" alt="Image" style="display:inline">
+		      <!-- <p>Discord Kuma.</p> -->
+		      <img src="../../image/DiscordKuma.jpg" class="img-responsive" alt="Discord Kuma" style="display:inline; margin-bottom: 10%;">
+		      <p>Hang out with friends</p>
 		    </div>
 		    <div class="col-sm-4">
-		      <p>Sasuke.</p>
-		      <img src="../../image/Sasuke.jpg" class="img-responsive" alt="Image" style="display:inline">
+		      <!-- <p>Sasuke.</p> -->
+		      <img src="../../image/Sasuke.jpg" class="img-responsive" alt="Sasuke" style="display:inline; margin-bottom: 10%;">
+		      <p>Watch anime</p>
 		    </div>
 	    </div>
 	</div>
@@ -93,7 +120,7 @@
   <h3 class="text-center">Contact Me</h3>
   	<div class="row">
     	<div class="col-sm-5">
-      	<p>Contact ume and I'll get back to you within 24 hours.</p>
+      	<p>Contact me and I'll get back to you within 24 hours.</p>
       	<p><span class="glyphicon glyphicon-map-marker"></span> Bangi, Selangor</p>
       	<p><span class="glyphicon glyphicon-phone"></span> +6012 3456789</p>
       	<p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
@@ -116,5 +143,11 @@
     </div>
   </div>
 </div>
+<footer class="container-fluid bg4 text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Copyright © Your Website 2017</p>
+</footer>
 </body>
 </html>
