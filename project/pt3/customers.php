@@ -93,21 +93,32 @@
   </div>
 
 
-    <table border="1">
+    <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="page-header">
+        <h2>Customer List</h2>
+      </div>
+    <table class="table table-striped table-bordered">
       <tr>
-        <td>Customer ID</td>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Gender</td>
-        <td>Phone Number</td>
-        <td></td>
+        <th>Customer ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Phone Number</th>
+        <th></th>
       </tr>
       <?php
       // Read
+      $per_page = 5;
+      if (isset($_GET["page"]))
+        $page = $_GET["page"];
+      else
+        $page = 1;
+      $start_from = ($page-1) * $per_page;
       try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $stmt = $conn->prepare("SELECT * FROM tbl_customers_a174088");
+          $stmt = $conn->prepare("SELECT * FROM tbl_customers_a174088 LIMIT $start_from, $per_page");
         $stmt->execute();
         $result = $stmt->fetchAll();
       }
@@ -123,8 +134,8 @@
         <td><?php echo $readrow['fld_customer_gender']; ?></td>
         <td><?php echo $readrow['fld_customer_phone']; ?></td>
         <td>
-          <a href="customers.php?edit=<?php echo $readrow['fld_customer_num']; ?>">Edit</a>
-          <a href="customers.php?delete=<?php echo $readrow['fld_customer_num']; ?>" onclick="return confirm('Are you sure to delete?');">Delete</a>
+          <a href="customers.php?edit=<?php echo $readrow['fld_customer_num']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>
+          <a href="customers.php?delete=<?php echo $readrow['fld_customer_num']; ?>" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger btn-xs" role="button">Delete</a>
         </td>
       </tr>
       <?php
@@ -132,9 +143,50 @@
       $conn = null;
       ?>
     </table>
+    </div>
+  </div>
   <!-- </center> -->
 
 
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <nav>
+          <ul class="pagination">
+          <?php
+          try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * FROM tbl_customers_a174088");
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $total_records = count($result);
+          }
+          catch(PDOException $e){
+                echo "Error: " . $e->getMessage();
+          }
+          $total_pages = ceil($total_records / $per_page);
+          ?>
+          <?php if ($page==1) { ?>
+            <li class="disabled"><span aria-hidden="true">«</span></li>
+          <?php } else { ?>
+            <li><a href="customers.php?page=<?php echo $page-1 ?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+          <?php
+          }
+          for ($i=1; $i<=$total_pages; $i++)
+            if ($i == $page)
+              echo "<li class=\"active\"><a href=\"customers.php?page=$i\">$i</a></li>";
+            else
+              echo "<li><a href=\"customers.php?page=$i\">$i</a></li>";
+          ?>
+          <?php if ($page==$total_pages) { ?>
+            <li class="disabled"><span aria-hidden="true">»</span></li>
+          <?php } else { ?>
+            <li><a href="customers.php?page=<?php echo $page+1 ?>" aria-label="Previous"><span aria-hidden="true">»</span></a></li>
+          <?php } ?>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

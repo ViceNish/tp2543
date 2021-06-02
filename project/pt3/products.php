@@ -167,6 +167,8 @@
     </table>
     </div>
   </div>
+
+
     <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <nav>
@@ -207,7 +209,7 @@
     </div>
   </div>
   <!-- </center> -->
-    </div>
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

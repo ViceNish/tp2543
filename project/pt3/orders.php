@@ -39,13 +39,13 @@
       <div class="form-group">
           <label for="orderid" class="col-sm-3 control-label">ID</label>
           <div class="col-sm-9">
-      <input name="oid" type="text" class="form-control" id="orderid" placeholder="Order ID" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_num']; ?>"> <br>
+      <input name="oid" type="text" class="form-control" id="orderid" placeholder="Order ID" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_num']; ?>"> 
       </div>
         </div>
       <div class="form-group">
           <label for="orderdate" class="col-sm-3 control-label">Order Date</label>
           <div class="col-sm-9">
-      <input name="orderdate" type="text" class="form-control" id="orderdate" placeholder="Order Date" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_date']; ?>"> <br>
+      <input name="orderdate" type="text" class="form-control" id="orderdate" placeholder="Order Date" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_date']; ?>"> 
       </div>
         </div>
       <div class="form-group">
@@ -74,7 +74,7 @@
       } // while
       $conn = null;
       ?> 
-      </select> <br>
+      </select> 
       </div>
         </div>
       <div class="form-group">
@@ -103,7 +103,7 @@
       } // while
       $conn = null;
       ?> 
-      </select> <br>
+      </select> 
       </div>
         </div>
         <div class="form-group">
@@ -120,8 +120,12 @@
       </div>
     </div>
 
-
-    <table border="1">
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="page-header">
+        <h2>Order List</h2>
+      </div>
+    <table class="table table-striped table-bordered">
       <tr>
         <td>Order ID</td>
         <td>Order Date</td>
@@ -129,13 +133,20 @@
         <td>Customer ID</td>
         <td></td>
       </tr>
+
       <?php
+      $per_page = 5;
+            if (isset($_GET["page"]))
+              $page = $_GET["page"];
+            else
+              $page = 1;
+            $start_from = ($page-1) * $per_page;
       try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM tbl_orders_a174088, tbl_staffs_a174088, tbl_customers_a174088 WHERE ";
         $sql = $sql."tbl_orders_a174088.fld_staff_num = tbl_staffs_a174088.fld_staff_num and ";
-        $sql = $sql."tbl_orders_a174088.fld_customer_num = tbl_customers_a174088.fld_customer_num";
+        $sql = $sql."tbl_orders_a174088.fld_customer_num = tbl_customers_a174088.fld_customer_num LIMIT $start_from, $per_page";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -151,9 +162,9 @@
         <td><?php echo $orderrow['fld_staff_fname']." ".$orderrow['fld_staff_lname'] ?></td>
         <td><?php echo $orderrow['fld_customer_fname']." ".$orderrow['fld_customer_lname'] ?></td>
         <td>
-          <a href="orders_details.php?oid=<?php echo $orderrow['fld_order_num']; ?>">Details</a>
-          <a href="orders.php?edit=<?php echo $orderrow['fld_order_num']; ?>">Edit</a>
-          <a href="orders.php?delete=<?php echo $orderrow['fld_order_num']; ?>" onclick="return confirm('Are you sure to delete?');">Delete</a>
+          <a href="orders_details.php?oid=<?php echo $orderrow['fld_order_num']; ?>" class="btn btn-warning btn-xs" role="button">Details</a>
+          <a href="orders.php?edit=<?php echo $orderrow['fld_order_num']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>
+          <a href="orders.php?delete=<?php echo $orderrow['fld_order_num']; ?>" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger btn-xs" role="button">Delete</a>
         </td>
       </tr>
       <?php
@@ -161,6 +172,8 @@
       $conn = null;
       ?>
     </table>
+  </div>
+</div>
   <!-- </center> -->
 
 
