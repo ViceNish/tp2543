@@ -41,7 +41,7 @@
       <div class="form-group">
           <label for="sid" class="col-sm-3 control-label">Staff ID</label>
           <div class="col-sm-9">
-      <input name="sid" type="text" id="sid" class="form-control" placeholder="Staff ID" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_STAFF_ID']; ?>"> 
+      <input name="sid" type="text" id="sid" class="form-control" placeholder="Staff ID" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_STAFF_ID']; else echo sprintf('S%02d',$ssid); ?>" readonly> 
       </div>
         </div>
       <div class="form-group">

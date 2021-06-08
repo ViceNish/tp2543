@@ -41,7 +41,7 @@
       <div class="form-group">
           <label for="oid" class="col-sm-3 control-label">Order ID</label>
           <div class="col-sm-9">
-      <input name="oid" id="oid" type="text" class="form-control" placeholder="Order ID" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_num']; ?>"> <br>
+      <input name="oid" id="oid" type="text" class="form-control" placeholder="Order ID" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_num']; else echo sprintf('P%02d',$ooid); ?>"> <br>
       </div>
         </div>
       <div class="form-group">

@@ -42,7 +42,7 @@
       <div class="form-group">
           <label for="cid" class="col-sm-3 control-label">Customer ID</label>
           <div class="col-sm-9">
-      <input name="cid" type="text" class="form-control" id="cid" placeholder="Customer ID" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_ID']; ?>" readonly> 
+      <input name="cid" type="text" class="form-control" id="cid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_ID']; else echo sprintf('C%02d',$ccid);?>" readonly> 
       </div>
         </div>
       <div class="form-group">

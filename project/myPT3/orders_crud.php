@@ -102,5 +102,7 @@ if (isset($_GET['edit'])) {
   }
 }
  
+  $ooid = $conn->query("SELECT MAX(fld_order_num) AS LASTID FROM tbl_orders_a174088")->fetch()['LASTID'];
+  $ooid = ltrim($ooid, 'P')+1;
   $conn = null;
 ?>

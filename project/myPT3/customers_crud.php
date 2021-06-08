@@ -104,6 +104,8 @@ if (isset($_GET['edit'])) {
   }
 }
  
+ $ccid = $conn->query("SELECT MAX(FLD_CUSTOMER_ID) AS LASTID FROM tbl_customers_a174088_pt2")->fetch()['LASTID'];
+  $ccid = ltrim($ccid, 'C')+1;
   $conn = null;
  
 ?>

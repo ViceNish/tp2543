@@ -42,7 +42,7 @@
       <div class="form-group">
           <label for="pid" class="col-sm-3 control-label">Product ID</label>
           <div class="col-sm-9">
-      <input name="pid" class="form-control" type="text" id="pid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_ID']; else echo sprintf('F%02d',$nid); ?>" readonly> 
+      <input name="pid" class="form-control" type="text" id="pid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_ID']; else echo sprintf('F%02d',$ppid); ?>" readonly> 
       </div>
         </div>
       <div class="form-group">
