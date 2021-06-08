@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Supreme Office Pro System : Products</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <link rel="shortcut icon" type="image/x-icon" href="images/sopico.ico"/>
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,25 +42,25 @@
       <div class="form-group">
           <label for="pid" class="col-sm-3 control-label">Product ID</label>
           <div class="col-sm-9">
-      <input name="pid" class="form-control" type="text" id="pid" placeholder="Product ID" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_ID']; ?>" readonly> <br>
+      <input name="pid" class="form-control" type="text" id="pid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_ID']; else echo sprintf('F%02d',$nid); ?>" readonly> 
       </div>
         </div>
       <div class="form-group">
           <label for="productname" class="col-sm-3 control-label">Name</label>
           <div class="col-sm-9">
-      <input name="name" class="form-control" type="text" id="productname" placeholder="Product Name" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_NAME']; ?>" required> <br>
+      <input name="name" class="form-control" type="text" id="productname" placeholder="Product Name" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_NAME']; ?>" required> 
       </div>
         </div>
         <div class="form-group">
           <label for="productprice" class="col-sm-3 control-label">Price</label>
           <div class="col-sm-9">
-      <input name="price" type="number" min="0.00" step="0.01" class="form-control" id="productprice" placeholder="Product Price" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRICE']; ?>" required> <br>
+      <input name="price" type="number" min="0.00" step="0.01" class="form-control" id="productprice" placeholder="Product Price" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRICE']; ?>" required> 
       </div>
         </div>
         <div class="form-group">
           <label for="brand" class="col-sm-3 control-label">Brand</label>
           <div class="col-sm-9">
-      <input type="text" name="brand" class="form-control" id="brand" placeholder="Brand" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_BRAND']; ?>" required> <br>
+      <input type="text" name="brand" class="form-control" id="brand" placeholder="Brand" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_BRAND']; ?>" required> 
       </div>
         </div>
       <div class="form-group">
@@ -72,32 +72,32 @@
         <option value="Chair" <?php if(isset($_GET['edit'])) if($editrow['FLD_TYPE']=="Chair") echo "selected"; ?>>Chair</option>
         <option value="Drawer" <?php if(isset($_GET['edit'])) if($editrow['FLD_TYPE']=="Drawer") echo "selected"; ?>>Drawer</option>
         <option value="Shelf" <?php if(isset($_GET['edit'])) if($editrow['FLD_TYPE']=="Shelf") echo "selected"; ?>>Shelf</option>
-      </select> <br>
+      </select> 
       </div>
         </div>
         <div class="form-group">
           <label for="qty" class="col-sm-3 control-label">Quantity</label>
           <div class="col-sm-9">
-      <input name="quantity" type="number" min="1" step="1" class="form-control" id="qty" placeholder="Quantity" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_QUANTITY']; ?>" required> <br>
+      <input name="quantity" type="number" min="1" step="1" class="form-control" id="qty" placeholder="Quantity" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_QUANTITY']; ?>" required> 
       </div>
         </div>
         <div class="form-group">
           <label for="colour" class="col-sm-3 control-label">Colour</label>
           <div class="col-sm-9">
-      <input name="colour" type="text" class="form-control" id="colour" placeholder="Colour" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_COLOUR']; ?>" required> <br>
+      <input name="colour" type="text" class="form-control" id="colour" placeholder="Colour" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_COLOUR']; ?>" required> 
     </div>
   </div>
   <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
       <!-- image -->
-      <input type="hidden" name="image" value="noimage.png"> <br>
+      <input type="hidden" name="image" value="noimage.png"> 
       <?php if (isset($_GET['edit'])) { ?>
       <input type="hidden" name="oldpid" value="<?php echo $editrow['FLD_PRODUCT_ID']; ?>">
-      <button type="submit" name="update"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Update</button>
+      <button class="btn btn-default" type="submit" name="update"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Update</button>
       <?php } else { ?>
-      <button type="submit" name="create"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create</button>
+      <button class="btn btn-default" type="submit" name="create"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create</button>
       <?php } ?>
-      <button type="reset"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Clear</button>
+      <button class="btn btn-default" type="reset"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Clear</button>
     </div>
   </div>
     </form>
@@ -183,7 +183,7 @@
           try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare("SELECT * FROM tbl_products_a174088");
+            $stmt = $conn->prepare("SELECT * FROM tbl_products_a174088_pt2");
             $stmt->execute();
             $result = $stmt->fetchAll();
             $total_records = count($result);

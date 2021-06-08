@@ -127,5 +127,7 @@ if (isset($_GET['edit'])) {
   }
 }
  
+ $nid = $conn->query("SELECT MAX(FLD_PRODUCT_ID) AS LASTID FROM tbl_products_a174088_pt2")->fetch()['LASTID'];
+  $nid = ltrim($nid, 'F')+1; 
   $conn = null;
 ?>

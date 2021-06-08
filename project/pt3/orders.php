@@ -127,11 +127,11 @@
       </div>
     <table class="table table-striped table-bordered">
       <tr>
-        <td>Order ID</td>
-        <td>Order Date</td>
-        <td>Staff ID</td>
-        <td>Customer ID</td>
-        <td></td>
+        <th>Order ID</th>
+        <th>Order Date</th>
+        <th>Staff ID</th>
+        <th>Customer ID</th>
+        <th></th>
       </tr>
 
       <?php

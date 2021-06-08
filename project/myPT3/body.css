@@ -1,5 +1,6 @@
 html{
     position: relative;
+    min-height: 100%;
     }
 body{
     font-family: sans-serif;
@@ -9,7 +10,7 @@ body{
     font-weight: bold;
     }
 th{
-    background-color: #808080;
+    background-color: #696969;
 }
 button{
     color: black;
