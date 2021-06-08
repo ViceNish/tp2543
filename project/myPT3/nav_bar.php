@@ -2,7 +2,6 @@
   a{
     color: #080504;
     font-weight: bold;
-    font: sans-serif;
     font-size: medium;
   }
   ul,li{
@@ -21,7 +20,7 @@
         <span class="icon-bar"></span>
       </button>
       <!-- <img src="images/LOGOSOP.jpg" width="40%" height="40%"> -->
-      <a class="navbar-brand" href="index.php" style="font-weight: bold;font: sans-serif;font-size: medium;">S.O.P.</a>
+      <a class="navbar-brand" href="index.php" style="font-weight: bold;font-size: medium;">S.O.P.</a>
     </div>
  
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,10 +32,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" style="background-color: #ffc406;">
-            <li><a href="products.php" style="font-weight: bold;font: sans-serif;font-size: medium;">Products</a></li>
-            <li><a href="customers.php" style="font-weight: bold;font: sans-serif;font-size: medium;">Customers</a></li>
-            <li><a href="staffs.php" style="font-weight: bold;font: sans-serif;font-size: medium;">Staffs</a></li>
-            <li><a href="orders.php"style="font-weight: bold;font: sans-serif;font-size: medium;">Orders</a></li>
+            <li><a href="products.php" style="font-weight: bold;font-size: medium;">Products</a></li>
+            <li><a href="customers.php" style="font-weight: bold;font-size: medium;">Customers</a></li>
+            <li><a href="staffs.php" style="font-weight: bold;font-size: medium;">Staffs</a></li>
+            <li><a href="orders.php"style="font-weight: bold;font-size: medium;">Orders</a></li>
           </ul>
         </li>
       </ul>
