@@ -176,6 +176,45 @@
 </div>
   <!-- </center> -->
 
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <nav>
+          <ul class="pagination">
+          <?php
+          try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * FROM tbl_orders_a174088, tbl_staffs_a174088, tbl_customers_a174088 WHERE tbl_orders_a174088.fld_staff_num = tbl_staffs_a174088.fld_staff_num and tbl_orders_a174088.fld_customer_num = tbl_customers_a174088.fld_customer_num");
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $total_records = count($result);
+          }
+          catch(PDOException $e){
+                echo "Error: " . $e->getMessage();
+          }
+          $total_pages = ceil($total_records / $per_page);
+          ?>
+          <?php if ($page==1) { ?>
+            <li class="disabled"><span aria-hidden="true">«</span></li>
+          <?php } else { ?>
+            <li><a href="orders.php?page=<?php echo $page-1 ?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+          <?php
+          }
+          for ($i=1; $i<=$total_pages; $i++)
+            if ($i == $page)
+              echo "<li class=\"active\"><a href=\"orders.php?page=$i\">$i</a></li>";
+            else
+              echo "<li><a href=\"orders.php?page=$i\">$i</a></li>";
+          ?>
+          <?php if ($page==$total_pages) { ?>
+            <li class="disabled"><span aria-hidden="true">»</span></li>
+          <?php } else { ?>
+            <li><a href="orders.php?page=<?php echo $page+1 ?>" aria-label="Previous"><span aria-hidden="true">»</span></a></li>
+          <?php } ?>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
 </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
