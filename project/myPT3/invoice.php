@@ -48,8 +48,8 @@
 </div>
 <div class="col-xs-6 text-right">
   <h1>INVOICE</h1>
-  <h5>Order: <?php echo $readrow['fld_order_num'] ?></h5>
-  <h5>Date: <?php echo $readrow['fld_order_date'] ?></h5>
+  <h5>Order : <?php echo $readrow['fld_order_num'] ?></h5>
+  <h5>Date : <?php echo $readrow['fld_order_date'] ?></h5>
 </div>
 </div>
 <hr>
@@ -57,7 +57,7 @@
   <div class="col-xs-5">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>From: Supreme Office Pro</h4>
+        <h4>From : Supreme Office Pro</h4>
       </div>
       <div class="panel-body">
         <p>
@@ -155,8 +155,8 @@
           <h4>Contact Details</h4>
         </div>
         <div class="panel-body">
-          <p> Staff: <?php echo $readrow['FLD_STAFF_NAME'] ?> </p>
-          <p> Email: SupremeOfficePro@SOP.com </p>
+          <p> Staff : <?php echo $readrow['FLD_STAFF_NAME'] ?> </p>
+          <p> Email : SupremeOfficePro@SOP.com </p>
           <p><br></p>
           <p><br></p>
           <p>Computer-generated invoice. No signature is required.</p>
