@@ -81,8 +81,9 @@
 </form>
 
 <script type="text/javascript">
+  var mycard = document.getElementById('id_mycard');
+  
   function check_mycard(){
-    var mycard = document.getElementById('id_mycard');
     var dob = document.getElementById('id_dob');
     var state = document.getElementById('id_state');
     var sex = document.getElementById('id_sex');
@@ -98,14 +99,17 @@
     var patt = new RegExp(mycard.getAttribute('pattern'));
     isValid = patt.test(mycard.value);
     if(isValid){
-      var dobYear = mycard.value.slice(0,2);
-      var dobMonth = mycard.value.slice(2,4);
-      var dobDate = mycard.value.slice(4,6);
+      // var dobYear = mycard.value.slice(0,2);
+      // var dobMonth = mycard.value.slice(2,4);
+      // var dobDate = mycard.value.slice(4,6);
       var birthState = mycard.value.slice(6,8);
       var lastdigitGender = mycard.value.slice(11,12);
 
-      document.getElementById("id_dob").value=dobDate+"/"+dobMonth+"/"+dobYear;
+
+    
+      // document.getElementById("id_dob").value=dobYear+"/"+dobMonth+"/"+dobDate;
       isEven(lastdigitGender);
+      document.getElementById("id_dob").value=Dobformat(dob);
 
       var selectObj=document.getElementById("id_state");
 
@@ -118,6 +122,20 @@
       alert("Please insert a correct MyCard number");
       mycard.focus();
     }
+  }
+
+  function Dobformat(dob) {
+    // var mycard = document.getElementById('id_mycard');
+    var dobYear = mycard.value.slice(0,2);
+    var dobMonth = mycard.value.slice(2,4);
+    var dobDate = mycard.value.slice(4,6);
+
+    var date = new Date(dobDate+"/"+dobMonth+"/"+dobYear);
+        if(!(date instanceof Date && !isNaN(date.valueOf()))){
+          alert("Please insert a correct MyCard number");
+          return "";
+        }
+        return dobDate+"/"+dobMonth+"/"+dobYear;
   }
 
   function setSelectedValue(selectObj, valueToSet) {
