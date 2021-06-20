@@ -18,7 +18,7 @@
     <hr>
     <form action="staffs.php" method="post">
       Staff ID
-      <input name="sid" type="text" id="sid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_STAFF_ID']; ?>"> <br>
+      <input name="sid" type="text" id="sid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_STAFF_ID']; else echo sprintf('S%02d',$ssid); ?>"> <br>
       Staff Name
       <input name="sname" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_STAFF_NAME']; ?>"> <br>
       <?php if (isset($_GET['edit'])) { ?>
@@ -61,20 +61,20 @@
       </tr>
       <?php
       }
-      if (!isset($_GET['edit']) && $stmt->rowCount()>0){
-        $no = ltrim($readrow['FLD_STAFF_ID'], 'S')+1;
-        $no = 'S'.str_pad($no,2,"0",STR_PAD_LEFT);
-      }elseif(!isset($_GET['edit'])){
-            $no = 'S'.str_pad(1,2,"0",STR_PAD_LEFT);
-      }
+      // if (!isset($_GET['edit']) && $stmt->rowCount()>0){
+      //   $no = ltrim($readrow['FLD_STAFF_ID'], 'S')+1;
+      //   $no = 'S'.str_pad($no,2,"0",STR_PAD_LEFT);
+      // }elseif(!isset($_GET['edit'])){
+      //       $no = 'S'.str_pad(1,2,"0",STR_PAD_LEFT);
+      // }
       $conn = null;
       ?>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         if("<?php echo $no ?>" !== null && "<?php echo $no ?>" !== ""){
           var pid = document.getElementById("sid");
           pid.value = "<?php echo $no ?>";
         }
-      </script>
+      </script> -->
     </table>
   </center>
 </body>

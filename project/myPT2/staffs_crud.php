@@ -100,6 +100,8 @@ if (isset($_GET['edit'])) {
   }
 }
  
+  $ssid = $conn->query("SELECT MAX(FLD_STAFF_ID) AS LASTID FROM tbl_staffs_a174088_pt2")->fetch()['LASTID'];
+  $ssid = ltrim($ssid, 'S')+1;
   $conn = null;
  
 ?>

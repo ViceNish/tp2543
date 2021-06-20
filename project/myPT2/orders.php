@@ -20,7 +20,7 @@
 
 
       Order ID
-      <input name="oid" id="oid" type="text" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_num']; ?>"> <br>
+      <input name="oid" id="oid" type="text" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_num']; else echo sprintf('P%02d',$ooid); ?>"> <br>
       Order Date and Time
       <input name="orderdate" type="text" readonly value="<?php if(isset($_GET['edit'])) echo $editrow['fld_order_date']; ?>"> <br>
       Staff
@@ -120,20 +120,20 @@
       </tr>
       <?php
       }
-      if (!isset($_GET['edit']) && $stmt->rowCount()>0){
-        $no = ltrim($orderrow['fld_order_num'], 'P')+1;
-        $no = 'P'.str_pad($no,2,"0",STR_PAD_LEFT);
-      }elseif(!isset($_GET['edit'])){
-            $no = 'P'.str_pad(1,2,"0",STR_PAD_LEFT);
-      }
+      // if (!isset($_GET['edit']) && $stmt->rowCount()>0){
+      //   $no = ltrim($orderrow['fld_order_num'], 'P')+1;
+      //   $no = 'P'.str_pad($no,2,"0",STR_PAD_LEFT);
+      // }elseif(!isset($_GET['edit'])){
+      //       $no = 'P'.str_pad(1,2,"0",STR_PAD_LEFT);
+      // }
       $conn = null;
       ?>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         if("<?php echo $no ?>" !== null && "<?php echo $no ?>" !== ""){
           var pid = document.getElementById("oid");
           pid.value = "<?php echo $no ?>";
         }
-      </script>
+      </script> -->
     </table>
   </center>
 </body>

@@ -6,7 +6,7 @@
 <html>
 <head>
   <title>Supreme Office Pro System : Products</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <link rel="shortcut icon" type="image/x-icon" href="images/sopico.ico"/>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <hr>
     <form action="products.php" method="post">
       Product ID
-      <input name="pid" type="text" id="pid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_ID']; ?>" readonly> <br>
+      <input name="pid" type="text" id="pid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_ID']; else echo sprintf('F%02d',$ppid); ?>" readonly> <br>
       Name
       <input name="name" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PRODUCT_NAME']; ?>" required> <br>
       Price
@@ -91,20 +91,20 @@
       </tr>
       <?php
       }
-      if (!isset($_GET['edit']) && $stmt->rowCount()>0){
-        $no = ltrim($readrow['FLD_PRODUCT_ID'], 'F')+1;
-        $no = 'F'.str_pad($no,2,"0",STR_PAD_LEFT);
-      }elseif(!isset($_GET['edit'])){
-            $no = 'F'.str_pad(1,2,"0",STR_PAD_LEFT);
-      }
+      // if (!isset($_GET['edit']) && $stmt->rowCount()>0){
+      //   $no = ltrim($readrow['FLD_PRODUCT_ID'], 'F')+1;
+      //   $no = 'F'.str_pad($no,2,"0",STR_PAD_LEFT);
+      // }elseif(!isset($_GET['edit'])){
+      //       $no = 'F'.str_pad(1,2,"0",STR_PAD_LEFT);
+      // }
       $conn = null;
       ?>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         if("<?php echo $no ?>" !== null && "<?php echo $no ?>" !== ""){
           var pid = document.getElementById("pid");
           pid.value = "<?php echo $no ?>";
         }
-      </script>
+      </script> -->
 
     </table>
   </center>

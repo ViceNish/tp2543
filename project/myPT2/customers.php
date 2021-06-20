@@ -18,7 +18,7 @@
     <hr>
     <form action="customers.php" method="post">
       Customer ID
-      <input name="cid" type="text" id="cid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_ID']; ?>" readonly> <br>
+      <input name="cid" type="text" id="cid" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_ID']; else echo sprintf('C%02d',$ccid);?>" readonly> <br>
       Customer Name
       <input name="cname" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_CUSTOMER_NAME']; ?>" required> <br>
       Phone Number
@@ -65,20 +65,20 @@
       </tr>
       <?php
       }
-      if (!isset($_GET['edit']) && $stmt->rowCount()>0){
-        $no = ltrim($readrow['FLD_CUSTOMER_ID'], 'C')+1;
-        $no = 'C'.str_pad($no,2,"0",STR_PAD_LEFT);
-      }elseif(!isset($_GET['edit'])){
-            $no = 'C'.str_pad(1,2,"0",STR_PAD_LEFT);
-      }
+      // if (!isset($_GET['edit']) && $stmt->rowCount()>0){
+      //   $no = ltrim($readrow['FLD_CUSTOMER_ID'], 'C')+1;
+      //   $no = 'C'.str_pad($no,2,"0",STR_PAD_LEFT);
+      // }elseif(!isset($_GET['edit'])){
+      //       $no = 'C'.str_pad(1,2,"0",STR_PAD_LEFT);
+      // }
       $conn = null;
       ?>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         if("<?php echo $no ?>" !== null && "<?php echo $no ?>" !== ""){
           var pid = document.getElementById("cid");
           pid.value = "<?php echo $no ?>";
         }
-      </script>
+      </script> -->
     </table>
   </center>
 </body>
