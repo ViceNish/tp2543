@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Week 13 Lab: JQuery</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<style type="text/css">
+		html, body {
+			height: 95%;
+			width: 100%;
+			font: 15px Montserrat, sans-serif;
+			line-height: 1.8;
+			background: #1F2833;
+			color: #C5C6C7;
+		}
+
+		.bouncy{
+			animation:bouncy 3s infinite linear;
+			position:relative;
+		}
+		@keyframes bouncy {
+			0%{top:0em}
+			40%{top:0em}
+			43%{top:-0.9em}
+			46%{top:0em}
+			48%{top:-0.4em}
+			50%{top:0em}
+			100%{top:0em;}
+		}
+
+		.button4{
+			display:inline-block;
+			padding:0.3em 1.2em;
+			margin:0 0.1em 0.1em 0;
+			border:0.16em solid rgba(255,255,255,0);
+			border-radius:2em;
+			box-sizing: border-box;
+			text-decoration:none;
+			font-family:'Roboto',sans-serif;
+			font-weight:300;
+			color:#FFFFFF;
+			text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+			text-align:center;
+			transition: all 0.2s;
+		}
+		.button4:hover{
+			border-color: rgba(255,255,255,1);
+		}		
+		@media all and (max-width:30em){
+			.button4{
+			display:block;
+			margin:0.2em auto;
+			}
+		}
+	</style>
+
+</head>
+<body>
+
+<div class="container h-100">
+	<div class="row align-items-center h-100 text-center">
+		<div class="col-6 mx-auto">
+			<h1><b>TP2543 - Week 13 Lab</b></h1>
+			<hr style="background: #eee;">
+			<div class="d-flex bd-highlight">
+				<div><a href="task1.html"><button class="button4 bouncy" style="animation-delay:0.05s;background-color: red;color: black;">Task 1</button></a></div>
+				<div><a href="task2.html" ><button class="button4 bouncy" style="animation-delay:0.10s;background-color: pink;color: black;">Task 2</button></a></div>
+				<div><a href="task3.html" ><button class="button4 bouncy" style="animation-delay:0.15s;background-color: yellow;color: black;">Task 3</button></a></div>
+				<div><a href="task4.html" ><button class="button4 bouncy" style="animation-delay:0.20s;background-color: green;">Task 4</button></a></div>
+				<div><a href="task5.html" ><button class="button4 bouncy" style="animation-delay:0.25s;background-color: blue;">Task 5</button></a></div>
+				<div><a href="task6.html" ><button class="button4 bouncy" style="animation-delay:0.30s;background-color: purple;">Task 6</button></a></div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</body>
+</html>
