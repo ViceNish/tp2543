@@ -1,0 +1,17 @@
+html{
+    position: relative;
+    min-height: 100%;
+    }
+body{
+    font-family: sans-serif;
+    margin-bottom: 60px; /* Margin bottom by footer height */
+    background-color: #080504;
+    color: #fbc306;
+    font-weight: bold;
+    }
+th{
+    background-color: #696969;
+}
+button{
+    color: black;
+}
