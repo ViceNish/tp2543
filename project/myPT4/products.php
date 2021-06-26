@@ -21,11 +21,11 @@ include_once 'products_crud.php';
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
       <link rel="stylesheet" type="text/css" href="body.css">
-      <!-- <style>
+      <style>
         input[type="file"] {
             display: none;
         }
-    </style> -->
+    </style>
     </head>
     <body>
   <!-- <center>
@@ -58,14 +58,15 @@ include_once 'products_crud.php';
             <form action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
             <!-- Image -->
             <div class="col-md-4">
-              <div class="thumbnail dark-1">
-                <img src="products/<?php echo (isset($_GET['edit']) ? $editrow['FLD_IMAGE'] : '') ?>" onerror="this.onerror=null;this.src='products/noimage.png';" id="pphoto" alt="Product Image" style="width: 100%;height: 225px;">
+              <div class="thumbnail dark-1" style="background-color: #696969;">
+                <img src="products/<?php echo (isset($_GET['edit']) ? $editrow['FLD_IMAGE'] : '') ?>" onerror="this.onerror=null;this.src='products/noimage.png';" id="pphoto" alt="Product Image" style="width: 100%;height: 100%;">
                 <div class="caption text-center">
-                  <h3 id="productImageTitle" style="word-break: break-all;">Product Image</h3>
+                  <h3 id="productImageTitle" style="word-break: break-all;color:#fbc306;"><?php echo (isset($_GET['edit']) && $editrow['FLD_IMAGE'] !== '' ? explode('.', $editrow['FLD_IMAGE'])[0] : 'Product Image') ?></h3> <!-- explode like split, it will remove the element after . -->
                   <p>
                     <label class="btn btn-primary">
-                      <input type="file" accept="images/*" name="fileToUpload" id="inputImage" onchange="loadFile(event);"/>
-                      <i class="fa fa-cloud-upload"></i>
+                      <input type="file" accept="images/*" name="fileToUpload" id="inputImage" onchange="loadFile(event);" />
+                      <i class="fa fa-cloud-upload"></i>Upload
+
                     </label>
                     <?php
                     /*if (isset($_GET['edit']) && $editrow['FLD_IMAGE'] != '') {
