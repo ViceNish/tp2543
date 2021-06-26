@@ -92,9 +92,9 @@ if (isset($_POST['create'])) {
   }elseif ($flag==1) {
     $_SESSION['error'] = "Sorry, only file with below 10MB are allowed.";
   }elseif ($flag==2) {
-    $_SESSION['error'] = "Sorry, there was an error uploading your file.";
+    $_SESSION['error'] = "Sorry, only PNG & GIF files are allowed.";
   }elseif ($flag==3) {
-    $_SESSION['error'] = "Please upload an image.";
+    $_SESSION['error'] = "Sorry, there was an error uploading your file.";
   }elseif ($flag==4) {
     $_SESSION['error'] = "Please upload an image.";
   }else{
@@ -137,9 +137,8 @@ if (isset($_POST['update'])) {
     // $image = $_POST['image'];
     $oldpid = $_POST['oldpid'];
      
-     $_SESSION['success'] = "Your product have successfully edited.";
     $stmt->execute();
-
+    $_SESSION['success'] = "Your product have successfully edited.";
 
 
     // Upload image
@@ -150,15 +149,14 @@ if (isset($_POST['update'])) {
 
       $stmt->bindParam(':image', $flag['name'] );
       $stmt->bindParam(':oldpid', $oldpid);
-
-      $_SESSION['success'] = "Your product have successfully edited.";
       $stmt->execute();
 
-      
+      $_SESSION['success'] = "Your product have successfully edited.";
 
 
 
-    }elseif($flag == 4){
+    }elseif($flag != 4){
+      unset($_SESSION['success']);
       if ($flag == 0)
           $_SESSION['error'] = "Please make sure the file uploaded is an image.";
       elseif ($flag == 1)
@@ -185,9 +183,9 @@ if (isset($_POST['update'])) {
         // header("Location: products.php");
 
   //exit();
-  $_SESSION['success'] = "Your product have successfully edited.";
+  // $_SESSION['success'] = "Your product have successfully edited.";
   header("Location: products.php");
-
+  exit();
 }
  
 //Delete

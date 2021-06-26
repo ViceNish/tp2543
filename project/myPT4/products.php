@@ -191,7 +191,8 @@ include_once 'products_crud.php';
                 <td><?php echo $readrow['FLD_COLOUR']; ?></td>
                 <td>
                   <a href="products_details.php?pid=<?php echo $readrow['FLD_PRODUCT_ID']; ?>" class="btn btn-warning btn-xs" role="button">Details</a>
-                  <a href="products.php?edit=<?php echo $readrow['FLD_PRODUCT_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>
+                  <a href="products.php?edit=<?php echo $readrow['FLD_PRODUCT_ID']; echo (isset($_GET['page']) ? '&page='.$_GET['page'] : ''); ?>" class="btn btn-success btn-xs" role="button"> Edit </a>
+                  <!-- <a href="products.php?edit=<?php echo $readrow['FLD_PRODUCT_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a> -->
                   <a href="products.php?delete=<?php echo $readrow['FLD_PRODUCT_ID']; ?>" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger btn-xs" role="button">Delete</a>
                 </td>
               </tr>
