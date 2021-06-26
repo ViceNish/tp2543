@@ -137,7 +137,9 @@ if (isset($_POST['update'])) {
     // $image = $_POST['image'];
     $oldpid = $_POST['oldpid'];
      
+     $_SESSION['success'] = "Your product have successfully edited.";
     $stmt->execute();
+
 
 
     // Upload image
@@ -148,7 +150,11 @@ if (isset($_POST['update'])) {
 
       $stmt->bindParam(':image', $flag['name'] );
       $stmt->bindParam(':oldpid', $oldpid);
+
+      $_SESSION['success'] = "Your product have successfully edited.";
       $stmt->execute();
+
+      
 
 
 
