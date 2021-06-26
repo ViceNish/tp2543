@@ -112,51 +112,85 @@ if (isset($_POST['update'])) {
  
   try {
  
-      $stmt = $conn->prepare("UPDATE tbl_products_a174088_pt2 SET 
-        FLD_PRODUCT_NAME = :name, FLD_PRICE = :price, FLD_BRAND = :brand,
-        FLD_TYPE = :type, FLD_QUANTITY = :quantity, FLD_COLOUR = :colour
-        WHERE FLD_PRODUCT_ID = :oldpid LIMIT 1");
+    //   $stmt = $conn->prepare("UPDATE tbl_products_a174088_pt2 SET 
+    //     FLD_PRODUCT_NAME = :name, FLD_PRICE = :price, FLD_BRAND = :brand,
+    //     FLD_TYPE = :type, FLD_QUANTITY = :quantity, FLD_COLOUR = :colour
+    //     WHERE FLD_PRODUCT_ID = :oldpid LIMIT 1");
      
-      // $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+    //   // $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+    //   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    //   $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+    //   $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+    //   $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+    //   $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+    //   $stmt->bindParam(':colour', $colour, PDO::PARAM_INT);
+    //  // $stmt->bindParam(':image', $flag['name'], PDO::PARAM_STR);
+    //   $stmt->bindParam(':oldpid', $oldpid, PDO::PARAM_STR);
+       
+    // // $pid = $_POST['pid'];
+    // $name = $_POST['name'];
+    // $price = $_POST['price'];
+    // $brand =  $_POST['brand'];
+    // $type = $_POST['type'];
+    // $quantity = $_POST['quantity'];
+    // $colour = $_POST['colour'];
+    // // $image = $_POST['image'];
+    // $oldpid = $_POST['oldpid'];
+     
+    // $stmt->execute();
+    // $_SESSION['success'] = "Your product have successfully edited.";
+
+
+    // Upload image
+    $flag = uploadPhoto($_FILES['fileToUpload']);
+    if (isset($flag['status']) || $flag==4) {
+      // $stmt = $conn->prepare("UPDATE tbl_products_a174088_pt2 SET FLD_IMAGE = :image
+      //   WHERE FLD_PRODUCT_ID = :oldpid LIMIT 1");
+
+      $sql = "UPDATE tbl_products_a174088_pt2 SET 
+         FLD_PRODUCT_NAME = :name, FLD_PRICE = :price, FLD_BRAND = :brand,
+         FLD_TYPE = :type, FLD_QUANTITY = :quantity, FLD_COLOUR = :colour";
+
+      if (isset($flag['status'])) {
+        $sql .= ", FLD_IMAGE = :image";
+      }
+
+      $sql .= " WHERE FLD_PRODUCT_ID = :oldpid LIMIT 1";
+
+      $stmt = $conn->prepare($sql);
       $stmt->bindParam(':name', $name, PDO::PARAM_STR);
       $stmt->bindParam(':price', $price, PDO::PARAM_INT);
       $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
       $stmt->bindParam(':type', $type, PDO::PARAM_STR);
       $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
       $stmt->bindParam(':colour', $colour, PDO::PARAM_INT);
-     // $stmt->bindParam(':image', $flag['name'], PDO::PARAM_STR);
-      $stmt->bindParam(':oldpid', $oldpid, PDO::PARAM_STR);
-       
-    // $pid = $_POST['pid'];
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $brand =  $_POST['brand'];
-    $type = $_POST['type'];
-    $quantity = $_POST['quantity'];
-    $colour = $_POST['colour'];
-    // $image = $_POST['image'];
-    $oldpid = $_POST['oldpid'];
      
-    $stmt->execute();
-    $_SESSION['success'] = "Your product have successfully edited.";
+      $stmt->bindParam(':oldpid', $oldpid, PDO::PARAM_STR);
+      $name = $_POST['name'];
+      $price = $_POST['price'];
+      $brand =  $_POST['brand'];
+      $type = $_POST['type'];
+      $quantity = $_POST['quantity'];
+      $colour = $_POST['colour'];
+    
+      $oldpid = $_POST['oldpid'];
 
+if (isset($flag['status'])) {
+        $stmt->bindParam(':image', $flag['name']);
+}
 
-    // Upload image
-    $flag = uploadPhoto($_FILES['fileToUpload']);
-    if (isset($flag['status'])) {
-      $stmt = $conn->prepare("UPDATE tbl_products_a174088_pt2 SET FLD_IMAGE = :image
-        WHERE FLD_PRODUCT_ID = :oldpid LIMIT 1");
-
-      $stmt->bindParam(':image', $flag['name'] );
-      $stmt->bindParam(':oldpid', $oldpid);
       $stmt->execute();
-
       $_SESSION['success'] = "Your product have successfully edited.";
+      // $stmt->bindParam(':image', $flag['name'] );
+      // $stmt->bindParam(':oldpid', $oldpid);
+      // $stmt->execute();
+
+      // $_SESSION['success'] = "Your product have successfully edited.";
 
 
 
-    }elseif($flag != 4){
-      unset($_SESSION['success']);
+    }else{
+      // unset($_SESSION['success']);
       if ($flag == 0)
           $_SESSION['error'] = "Please make sure the file uploaded is an image.";
       elseif ($flag == 1)
@@ -174,17 +208,17 @@ if (isset($_POST['update'])) {
  
   catch(PDOException $e)
   {
-      echo "Error: " . $e->getMessage();
+       $_SESSION['error']=   $e->getMessage();
   }
 
-  // if (isset($_SESSION['error']))
-  //       header("LOCATION: {$_SERVER['REQUEST_URI']}");
-  //   else
-        // header("Location: products.php");
+  if (isset($_SESSION['error']))
+        header("LOCATION: {$_SERVER['REQUEST_URI']}");
+    else
+        header("Location: products.php");
 
   //exit();
   // $_SESSION['success'] = "Your product have successfully edited.";
-  header("Location: products.php");
+  // header("Location: products.php");
   exit();
 }
  

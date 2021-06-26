@@ -55,7 +55,7 @@ include_once 'products_crud.php';
             <h2>Add New Product</h2>
           </div>
           <div class="row">
-            <form action="products.php" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
             <!-- Image -->
             <div class="col-md-4">
               <div class="thumbnail dark-1">
