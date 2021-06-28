@@ -156,7 +156,7 @@ if (isset($_POST['update'])) {
 
 
     // Upload image
-    $flag = uploadPhoto($_FILES['fileToUpload']);
+    $flag = uploadPhoto($_FILES['fileToUpload'],$_POST['pid']);
     if (isset($flag['status']) || $flag==4) {
       // $stmt = $conn->prepare("UPDATE tbl_products_a174088_pt2 SET FLD_IMAGE = :image
       //   WHERE FLD_PRODUCT_ID = :oldpid LIMIT 1");
@@ -192,6 +192,10 @@ if (isset($_POST['update'])) {
       if (isset($flag['status'])) {
         $stmt->bindParam(':image', $flag['name']);
       }
+
+   //    $path = 'products/' . $result['FLD_IMAGE'];
+   // if (file_exists($path))
+   //  unlink($path);
 
       $stmt->execute();
       $_SESSION['success'] = "Your product have successfully edited.";
