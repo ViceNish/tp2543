@@ -51,6 +51,29 @@
       </div>
         </div>
         <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Staff Email</label>
+                <div class="col-sm-9">
+                  <input name="email" type="text" class="form-control" id="email" placeholder="Staff Email" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_EMAIL']; ?>"> 
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Staff Password</label>
+                <div class="col-sm-9">
+                  <input name="password" type="text" class="form-control" id="password" placeholder="Staff Password" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PASS']; ?>"> 
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="role" class="col-sm-3 control-label">Role</label>
+                <div class="col-sm-9">
+                  <select name="role" class="form-control" id="role" required>
+                    <option value="">Please select</option>
+                    <option value="Admin" <?php if(isset($_GET['edit'])) if($editrow['FLD_ROLE']=="Admin") echo "selected"; ?>>Admin</option>
+                    <option value="Staff" <?php if(isset($_GET['edit'])) if($editrow['FLD_ROLE']=="Staff") echo "selected"; ?>>Staff</option>
+                  </select> 
+                </div>
+              </div>
+
+        <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
       <?php if (isset($_GET['edit'])) { ?>
       <input type="hidden" name="oldsid" value="<?php echo $editrow['FLD_STAFF_ID']; ?>">

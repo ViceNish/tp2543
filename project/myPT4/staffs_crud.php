@@ -10,14 +10,20 @@ if (isset($_POST['create'])) {
  
   try {
  
-    $stmt = $conn->prepare("INSERT INTO tbl_staffs_a174088_pt2(FLD_STAFF_ID, FLD_STAFF_NAME) VALUES(:sid, :sname)");
+    $stmt = $conn->prepare("INSERT INTO tbl_staffs_a174088_pt2(FLD_STAFF_ID, FLD_STAFF_NAME,FLD_EMAIL,FLD_PASS,FLD_ROLE) VALUES(:sid, :sname, :email, :password, :role)");
    
     $stmt->bindParam(':sid', $sid, PDO::PARAM_STR);
     $stmt->bindParam(':sname', $fname, PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+    $stmt->bindParam(':role', $role, PDO::PARAM_STR);
 
        
     $sid = $_POST['sid'];
     $fname = $_POST['sname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
 
          
     $stmt->execute();
@@ -39,10 +45,16 @@ if (isset($_POST['update'])) {
    
     $stmt->bindParam(':sid', $sid, PDO::PARAM_STR);
     $stmt->bindParam(':sname', $fname, PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+    $stmt->bindParam(':role', $role, PDO::PARAM_STR);
     $stmt->bindParam(':oldsid', $oldsid, PDO::PARAM_STR);
        
     $sid = $_POST['sid'];
     $fname = $_POST['sname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
     $oldsid = $_POST['oldsid'];
          
     $stmt->execute();
