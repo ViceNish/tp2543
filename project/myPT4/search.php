@@ -68,7 +68,7 @@ include_once 'database.php';
 					<p>Search product by Name, Price, Type or all three.</p>
 				</div>
 				<div class="col-md-12">
-					<form action="search.php" method="POST" class="needs-validation" novalidate>
+					<form action="search.php" method="POST" class="needs-validation">
 						<!-- <div class="form-group">
 							<input type="text" name="inputsearch" class="form-control text-center " id="inputSearch" placeholder="Chair" required>
 						</div>
@@ -80,9 +80,9 @@ include_once 'database.php';
 									<span class="input-group-btn">
 										<button class="btn btn-default bts" type="submit" name="search" style="">Search</button>
 									</span>
-								</div><!-- /input-group -->
-							</div><!-- /.col-lg-6 -->
-						</div><!-- /.row -->
+								</div>
+							</div>
+						</div>
 						<!-- <span id="Block" class="help-block"></span> -->
 					</form>
 				</div>
