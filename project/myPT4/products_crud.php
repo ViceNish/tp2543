@@ -43,7 +43,7 @@ function uploadPhoto($file,$id){
     return 3;
   }
 
-  
+
 
   // return array('status' => 200, 'name' => basename($file["name"]));
   return array('status' => 200, 'name' => $newfilename,'ext' => $imageFileType);
@@ -90,7 +90,7 @@ if (isset($_POST['create'])) {
 // // Rename file after upload
  //  $id = $conn->query("SELECT MAX(FLD_PRODUCT_ID) AS LASTID FROM tbl_products_a174088_pt2")->fetch()['LASTID'];
  // rename("products/{$flag['name']}", "products/{$id}.{$flag['ext']}");
-    
+
 
     $_SESSION['success'] = "Your product have successfully registered.";
   }
@@ -235,7 +235,7 @@ if (isset($_POST['update'])) {
 
   catch(PDOException $e)
   {
-   $_SESSION['error']=   $e->getMessage();
+    $_SESSION['error'] = $e->getMessage();
  }
 
  if (isset($_SESSION['error']))
@@ -276,7 +276,7 @@ if (isset($_GET['delete'])) {
 
 catch(PDOException $e)
 {
-  echo "Error: " . $e->getMessage();
+  $_SESSION['error'] = $e->getMessage();
 }
 }
 
@@ -298,7 +298,7 @@ if (isset($_GET['edit'])) {
 
   catch(PDOException $e)
   {
-    echo "Error: " . $e->getMessage();
+    $_SESSION['error'] = $e->getMessage();
   }
 }
 
