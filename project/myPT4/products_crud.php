@@ -11,7 +11,7 @@ function uploadPhoto($file,$id){
   $imageFileType=strtolower(pathinfo($target_file2, PATHINFO_EXTENSION));
   // $newfilename = "{$namefile}-".microtime().".{$imageFileType}";
   $newfilename = "{$id}.{$imageFileType}";
-   $target_file = $target_dir . $newfilename;
+  $target_file = $target_dir . $newfilename;
   /*
    * 0 = image file is a fake image
    * 1 = file is too large.
@@ -43,7 +43,7 @@ function uploadPhoto($file,$id){
     return 3;
   }
 
-   
+  
 
   // return array('status' => 200, 'name' => basename($file["name"]));
   return array('status' => 200, 'name' => $newfilename,'ext' => $imageFileType);
@@ -90,15 +90,15 @@ if (isset($_POST['create'])) {
 // // Rename file after upload
  //  $id = $conn->query("SELECT MAX(FLD_PRODUCT_ID) AS LASTID FROM tbl_products_a174088_pt2")->fetch()['LASTID'];
  // rename("products/{$flag['name']}", "products/{$id}.{$flag['ext']}");
-   
+    
 
     $_SESSION['success'] = "Your product have successfully registered.";
   }
 
   catch(PDOException $e)
   {
-     $_SESSION['error'] = $e->getMessage();
-  }
+   $_SESSION['error'] = $e->getMessage();
+ }
 }else{
   if ($flag==0) {
     $_SESSION['error'] = "Please make sure the file uploaded is an image.";
@@ -116,9 +116,9 @@ if (isset($_POST['create'])) {
   }
 }
 
- header("LOCATION: {$_SERVER['REQUEST_URI']}");
+header("LOCATION: {$_SERVER['REQUEST_URI']}");
   // header('LOCATION: products.php');
-   exit();
+exit();
 }
 
 //Update
