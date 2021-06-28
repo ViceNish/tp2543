@@ -193,7 +193,16 @@ if (isset($_POST['update'])) {
         $stmt->bindParam(':image', $flag['name']);
       }
 
-   //    $path = 'products/' . $result['FLD_IMAGE'];
+   //    $pid = $_GET['update'];
+   // $stmt = $conn->prepare("SELECT FLD_IMAGE FROM tbl_products_a174088_pt2 WHERE FLD_PRODUCT_ID = :pid LIMIT 1");
+
+   // $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+
+   // $stmt->execute();
+
+   // $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+   // $path = 'products/' . $result['FLD_IMAGE'];
    // if (file_exists($path))
    //  unlink($path);
 
