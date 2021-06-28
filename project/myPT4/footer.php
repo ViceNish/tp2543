@@ -1,9 +1,17 @@
 <style type="text/css">
-  .footer {
-    position: absolute;
+/*  .footer {
+    position: relative;
     bottom: 0;
     width: 100%;
     height: 70px;
+}*/
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px; /* Set the fixed height of the footer here */
+  background-color: black;
+  text-align: center;
 }
 b{
   color: #080504; 

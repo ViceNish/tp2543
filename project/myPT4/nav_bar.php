@@ -8,8 +8,9 @@
     background-color: #ffc406;
   }
 
+
 </style>
-<nav class="navbar navbar-default">
+<nav class="navbar-default">
   <div class="container-fluid" style="background-color: #ffc406;">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -27,8 +28,20 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li><a href="index.php" style="background-color: #ffc406;">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products 
+          <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" style="background-color: #ffc406;">
+            <li><a href="products.php" style="font-weight: bold;font-size: medium;"> Products</a></li>
+            <li><a href="search.php" style="font-weight: bold;font-size: medium;">Search Products</a></li>
+          </ul>
+      </li>
+      <li><a href="customers.php" style="background-color: #ffc406;">Customer</a></li>
+      <li><a href="staffs.php" style="background-color: #ffc406;">Staff</a></li>
+      <li><a href="orders.php" style="background-color: #ffc406;">Order</a></li>
     </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <!-- <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" style="background-color: #ffc406;">
@@ -38,7 +51,7 @@
             <li><a href="orders.php"style="font-weight: bold;font-size: medium;">Orders</a></li>
           </ul>
         </li>
-      </ul>
+      </ul> -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
