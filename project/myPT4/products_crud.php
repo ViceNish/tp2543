@@ -207,6 +207,11 @@ if (isset($_POST['update'])) {
    //  unlink($path);
 
       $stmt->execute();
+      
+      if(pathinfo(basename($_POST['filename']), PATHINFO_EXTENSION)!=$flag['ext'])
+      unlink("products/{$_POST['filename']}");
+      
+
       $_SESSION['success'] = "Your product have successfully edited.";
       // $stmt->bindParam(':image', $flag['name'] );
       // $stmt->bindParam(':oldpid', $oldpid);
