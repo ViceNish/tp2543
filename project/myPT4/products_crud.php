@@ -190,7 +190,10 @@ if (isset($_POST['update'])) {
       $oldpid = $_POST['oldpid'];
 
       if (isset($flag['status'])) {
-        $stmt->bindParam(':image', $flag['name']);
+      $stmt->bindParam(':image', $flag['name']);
+        if(pathinfo(basename($_POST['filename']), PATHINFO_EXTENSION)!=$flag['ext']){
+          unlink("products/{$_POST['filename']}");
+        }
       }
 
    //    $pid = $_GET['update'];
@@ -208,20 +211,12 @@ if (isset($_POST['update'])) {
 
       $stmt->execute();
 
-      if(pathinfo(basename($_POST['filename']), PATHINFO_EXTENSION)!=$flag['ext']){
-        unlink("products/{$_POST['filename']}");
-      }
-      
-      
-
       $_SESSION['success'] = "Your product have successfully edited.";
       // $stmt->bindParam(':image', $flag['name'] );
       // $stmt->bindParam(':oldpid', $oldpid);
       // $stmt->execute();
 
       // $_SESSION['success'] = "Your product have successfully edited.";
-
-
 
     }else{
       // unset($_SESSION['success']);
