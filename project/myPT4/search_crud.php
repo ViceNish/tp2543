@@ -25,6 +25,7 @@ try {
 				<?php
 				for ($index = 0; $index < count($input_data); $index++) {
 					echo $input_data[$index] . "";
+					echo " ";
 				}
 				?>
 					</h2>
