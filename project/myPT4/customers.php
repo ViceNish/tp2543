@@ -19,7 +19,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="body.css">
+  <link rel="stylesheet" type="text/css" href="css/body.css">
 </head>
 <body>
   <!-- <center>
@@ -30,9 +30,11 @@
     <a href="orders.php">Orders</a>
     <hr> -->
     <?php include_once 'nav_bar.php'; ?>
+    <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
 
     <div class="container-fluid">
-
     <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <div class="page-header">
@@ -72,7 +74,7 @@
   </div>
 </div>
 
-
+<?php } ?>
     <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="page-header">
@@ -83,7 +85,11 @@
         <th>Customer ID</th>
         <th>Customer Name</th>
         <th>Phone Number</th>
+        <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
         <th></th>
+      <?php } ?>
       </tr>
       <?php
       // Read
@@ -109,10 +115,14 @@
         <td><?php echo $readrow['FLD_CUSTOMER_ID']; ?></td>
         <td><?php echo $readrow['FLD_CUSTOMER_NAME']; ?></td>
         <td><?php echo $readrow['FLD_CUSTOMER_PHONE']; ?></td>
+        <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
         <td>
           <a href="customers.php?edit=<?php echo $readrow['FLD_CUSTOMER_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>
           <a href="customers.php?delete=<?php echo $readrow['FLD_CUSTOMER_ID']; ?>" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger btn-xs" role="button">Delete</a>
         </td>
+      <?php } ?>
       </tr>
       <?php
       }

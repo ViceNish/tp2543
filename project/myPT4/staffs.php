@@ -19,7 +19,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="body.css">  
+    <link rel="stylesheet" type="text/css" href="css/body.css">  
 </head>
 <body>
   <!-- <center>
@@ -30,6 +30,9 @@
     <a href="orders.php">Orders</a>
     <hr> -->
     <?php include_once 'nav_bar.php'; ?>
+    <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
 
     <div class="container-fluid">
       <div class="row">
@@ -88,6 +91,7 @@
   </div>
 </div>
 
+<?php } ?>
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="page-header">
@@ -97,7 +101,11 @@
       <tr>
         <th>Staff ID</th>
         <th>Staff Name</th>
+        <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
         <th></th>
+      <?php } ?>
       </tr>
       <?php
       // Read
@@ -122,10 +130,14 @@
       <tr>
         <td><?php echo $readrow['FLD_STAFF_ID']; ?></td>
         <td><?php echo $readrow['FLD_STAFF_NAME']; ?></td>
+        <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
         <td>
           <a href="staffs.php?edit=<?php echo $readrow['FLD_STAFF_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>
           <a href="staffs.php?delete=<?php echo $readrow['FLD_STAFF_ID']; ?>" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger btn-xs" role="button">Delete</a>
         </td>
+      <?php } ?>
       </tr>
       <?php
       }
