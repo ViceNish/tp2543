@@ -1,5 +1,6 @@
 *.png
 *.jpg
 *.jpeg
-database.php
-db.php
+*database.php
+*db.php
+*.ico
