@@ -1,5 +1,8 @@
 <?php
   include_once 'orders_crud.php';
+
+  if (!isset($_SESSION['loggedin']))
+    header("LOCATION: login.php");
 ?>
 
 <!DOCTYPE html>
@@ -163,8 +166,12 @@
         <td><?php echo $orderrow['FLD_CUSTOMER_NAME'] ?></td>
         <td>
           <a href="orders_details.php?oid=<?php echo $orderrow['fld_order_num']; ?>" class="btn btn-warning btn-xs" role="button">Details</a>
+          <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+      ?>
           <a href="orders.php?edit=<?php echo $orderrow['fld_order_num']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>
           <a href="orders.php?delete=<?php echo $orderrow['fld_order_num']; ?>" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger btn-xs" role="button">Delete</a>
+        <?php } ?>
         </td>
       </tr>
       <?php

@@ -108,7 +108,7 @@ if (isset($_POST['username'], $_POST['password'])) {
               
             </div>
             <div class="form-element form-submit" align="center">
-              <a id="goLeft" class="signup off" style="color: #ffc406;text-decoration: none;">Log In</a>
+              <a href="#" id="goLeft" class="signup off" style="color: #ffc406;text-decoration: none;">Log In</a>
             </div>
           </form>
         </div>

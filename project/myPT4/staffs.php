@@ -1,5 +1,8 @@
 <?php
   include_once 'staffs_crud.php';
+
+  if (!isset($_SESSION['loggedin']))
+    header("LOCATION: login.php");
 ?>
 
 <!DOCTYPE html>
@@ -54,13 +57,13 @@
       </div>
         </div>
         <div class="form-group">
-                <label for="email" class="col-sm-3 control-label">Staff Email</label>
+                <label for="email" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-9">
                   <input name="email" type="text" class="form-control" id="email" placeholder="Staff Email" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_EMAIL']; ?>"> 
                 </div>
               </div>
               <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">Staff Password</label>
+                <label for="password" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-9">
                   <input name="password" type="text" class="form-control" id="password" placeholder="Staff Password" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PASS']; ?>"> 
                 </div>
