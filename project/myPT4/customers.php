@@ -34,7 +34,7 @@
     <hr> -->
     <?php include_once 'nav_bar.php'; ?>
     <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
 
     <div class="container-fluid">
@@ -89,7 +89,7 @@
         <th>Customer Name</th>
         <th>Phone Number</th>
         <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
         <th></th>
       <?php } ?>
@@ -119,7 +119,7 @@
         <td><?php echo $readrow['FLD_CUSTOMER_NAME']; ?></td>
         <td><?php echo $readrow['FLD_CUSTOMER_PHONE']; ?></td>
         <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
         <td>
           <a href="customers.php?edit=<?php echo $readrow['FLD_CUSTOMER_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>

@@ -34,7 +34,7 @@
     <hr> -->
     <?php include_once 'nav_bar.php'; ?>
     <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
 
     <div class="container-fluid">
@@ -59,13 +59,13 @@
         <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-9">
-                  <input name="email" type="text" class="form-control" id="email" placeholder="Staff Email" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_EMAIL']; ?>"> 
+                  <input name="email" type="text" class="form-control" id="email" placeholder="Email" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_EMAIL']; ?>"> 
                 </div>
               </div>
               <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-9">
-                  <input name="password" type="text" class="form-control" id="password" placeholder="Staff Password" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PASS']; ?>"> 
+                  <input name="password" type="text" class="form-control" id="password" placeholder="Password" value="<?php if(isset($_GET['edit'])) echo $editrow['FLD_PASS']; ?>"> 
                 </div>
               </div>
               <div class="form-group">
@@ -105,7 +105,7 @@
         <th>Staff ID</th>
         <th>Staff Name</th>
         <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
         <th></th>
       <?php } ?>
@@ -134,7 +134,7 @@
         <td><?php echo $readrow['FLD_STAFF_ID']; ?></td>
         <td><?php echo $readrow['FLD_STAFF_NAME']; ?></td>
         <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
         <td>
           <a href="staffs.php?edit=<?php echo $readrow['FLD_STAFF_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a>

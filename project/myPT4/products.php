@@ -41,11 +41,11 @@ if (!isset($_SESSION['loggedin']))
     <?php include_once 'nav_bar.php'; ?>
 
     <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+    if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
       ?>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" style="padding-top:30px;">
             <?php if (isset($_SESSION['error'])) {
               echo "<div class='alert alert-danger' role='alert'>{$_SESSION['error']}</div>";
               unset($_SESSION['error']);
@@ -201,7 +201,7 @@ if (!isset($_SESSION['loggedin']))
               <td>
                 <a href="products_details.php?pid=<?php echo $readrow['FLD_PRODUCT_ID']; ?>" class="btn btn-warning btn-xs" role="button">Details</a>
                 <?php
-                if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'admin') {
+                if (isset($_SESSION['user']) && $_SESSION['user']['FLD_ROLE'] == 'Admin') {
                   ?>
                   <a href="products.php?edit=<?php echo $readrow['FLD_PRODUCT_ID']; echo (isset($_GET['page']) ? '&page='.$_GET['page'] : ''); ?>" class="btn btn-success btn-xs" role="button"> Edit </a>
                   <!-- <a href="products.php?edit=<?php echo $readrow['FLD_PRODUCT_ID']; ?>" class="btn btn-success btn-xs" role="button">Edit</a> -->
