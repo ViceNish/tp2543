@@ -53,11 +53,11 @@
         </li>
       </ul> -->
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" style="background-color: #ffc406;"><?php echo $_SESSION['user']['FLD_ROLE']; ?></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user']['FLD_STAFF_NAME']; ?><span class="caret"></span></a>
           <ul class="dropdown-menu" style="background-color: #ffc406;">
             <li><a href="logout.php" style="font-weight: bold;font-size: medium;">Log out</a></li>
-            
           </ul>
         </li>
       </ul>
