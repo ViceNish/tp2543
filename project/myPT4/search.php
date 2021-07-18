@@ -114,7 +114,8 @@ if (!isset($_SESSION['loggedin']))
 		<div class="container content" >
 
 			<?php
-			include_once 'search_crud.php';
+			 include_once 'search_crud.php';
+			//include_once 'search_crud_and.php';
 			?>
 		</div>
 	</div>

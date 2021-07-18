@@ -118,7 +118,7 @@ if (isset($_POST['username'], $_POST['password'])) {
           <h2 style="color:black; font-weight: bold;">Login</h2>
           <form id="form-login" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <div class="form-element form-stack">
-              <label for="username-login" class="form-label">Username</label>
+              <label for="username-login" class="form-label">Email</label>
               <input id="username-login" type="text" name="username">
             </div>
             <div class="form-element form-stack">
@@ -127,11 +127,11 @@ if (isset($_POST['username'], $_POST['password'])) {
             </div>
             <div class="form-element form-submit">
               <?php
-        if (isset($_SESSION['error'])) {
-          echo "<br><p class='alert alert-danger text-center' style='color:red;font-weight:bold'>{$_SESSION['error']}</p>";
-          unset($_SESSION['error']);
-        }
-        ?>
+              if (isset($_SESSION['error'])) {
+                echo "<br><p class='alert alert-danger text-center' style='color:red;font-weight:bold'>{$_SESSION['error']}</p>";
+                unset($_SESSION['error']);
+              }
+              ?>
               <button type="submit" name="login" style="background-color:black;color: #ffc406;">Log In</button>
               <a href="#" id="goRight" class="login off" name="signup" style="color:black;text-decoration: none;">Read Me</a>
             </div>
