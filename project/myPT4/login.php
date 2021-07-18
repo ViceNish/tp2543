@@ -79,7 +79,7 @@ if (isset($_POST['username'], $_POST['password'])) {
       <div class="left" style="overflow: hidden;">
         <div class="content">
             <center>
-              <h2 style="padding-top: 80px; color: #ffc406;">Email Address Details</h2>
+              <h2 style="padding-top: 80px; color: #ffc406;">Login Details</h2>
             </center>
           <form id="form-signup" method="post">
             <div  align="center" style="padding-top:10px;">

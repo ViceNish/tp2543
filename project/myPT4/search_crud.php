@@ -52,6 +52,7 @@ try {
 									<th scope="col" style="width: 10%;">Type</th>
 									<th scope="col" style="width: 20%">Quantity</th>
 									<th scope="col" style="width: 6%;">Colour</th>
+									<th scope="col" style="width: 6%;">Image</th>
 									<!-- <th scope="col" style="width: 6%;">Stock</th> -->
 								</tr>
 							</thead>
@@ -84,6 +85,7 @@ try {
 												<td><?php echo $readrow['FLD_TYPE']; ?></td>
 												<td><?php echo $readrow['FLD_QUANTITY']; ?></td>
 												<td><?php echo $readrow['FLD_COLOUR']; ?></td>
+												<td><img src="products/<?php echo $readrow['FLD_IMAGE'] ?>" class="img-responsive" width="100%" height="100%"></td>
 												<!-- <td><?php //echo $readrow['fld_product_quantity']; ?></td> -->
 											</tr>
 
@@ -105,6 +107,7 @@ try {
 													<td><?php echo $readrow['FLD_TYPE']; ?></td>
 													<td><?php echo $readrow['FLD_QUANTITY']; ?></td>
 													<td><?php echo $readrow['FLD_COLOUR']; ?></td>
+													<td><img src="products/<?php echo $readrow['FLD_IMAGE'] ?>" class="img-responsive" width="100%" height="100%"></td>
 													<!-- <td><?php //echo $readrow['fld_product_quantity']; ?></td> -->
 												</tr>
 												<?php
@@ -133,6 +136,7 @@ try {
 								<th scope="col" style="width: 10%;">Type</th>
 								<th scope="col" style="width: 20%">Quality</th>
 								<th scope="col" style="width: 6%;">Colour</th>
+								<th scope="col" style="width: 6%;">Image</th>
 								<!-- <th scope="col" style="width: 6%;">Stock</th> -->
 							</tr>
 
@@ -160,6 +164,7 @@ try {
 										<td><?php echo $readrow['FLD_TYPE']; ?></td>
 										<td><?php echo $readrow['FLD_QUANTITY']; ?></td>
 										<td><?php echo $readrow['FLD_COLOUR']; ?></td>
+										<td><img src="products/<?php echo $readrow['FLD_IMAGE'] ?>" class="img-responsive" width="100%" height="100%"></td>
 										<!-- <td><?php// echo $readrow['fld_product_quantity']; ?></td> -->
 									</tr>
 								</thead>
